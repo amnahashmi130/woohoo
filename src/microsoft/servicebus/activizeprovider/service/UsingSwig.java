@@ -34,7 +34,7 @@ public class UsingSwig {
 	public static String send(String messageText) {
 		JNIMessengerFactory factory = new JNIMessengerFactory();
 		JNIMessageFactory msgFact = new JNIMessageFactory();
-		String address = "amqps://owner:z07jLXMDL+A+lY4Ca2ndw0HMljtUtOsmPR6vkF/K8BY=@activizedemo.servicebus.windows.net/activize1";
+		// Set String address to --> amqps://owner:secretkey@namespace/eventhubname
 		Messenger msgr = factory.createMessenger();
 		
 		try{
@@ -149,9 +149,6 @@ public class UsingSwig {
 		
 		synchronized(msgr) {
 			JNIMessageFactory msgFact = new JNIMessageFactory();
-			// String address = "amqps://owner:KzpLzFcr0kLzlh3bVjD9ENCK+8YvZUPGPxh3kg/RUuQ=@activizeeh.servicebus.windows.net/activize/partitions/1";
-			// String address = "amqps://owner:KzpLzFcr0kLzlh3bVjD9ENCK%2B8YvZUPGPxh3kg%2FRUuQ%3D@activizeeh.servicebus.windows.net/activize";
-			String address = "amqps://owner:KzpLzFcr0kLzlh3bVjD9ENCK+8YvZUPGPxh3kg/RUuQ=@activizeeh.servicebus.windows.net/activize";
 			if(messageText.equals(""))
 				messageText = "Default message text";
 			
@@ -190,9 +187,6 @@ public class UsingSwig {
 	//This means a messenger should be created and started and then passed into this method to be
 	//used.	
 	public static String receiveWithMessenger(Messenger msgr) {
-		// String address = "amqps://owner:SrzvZnC6gCNMHmX1xUoN+DPQAg1dtuxXjEa60UTco08=@ttt-ns.servicebus.afdf.windows-int.net/myeventhub/1";
-		String address = "amqps://EventHubListener:KP24bWgswtrvbuv9TKNJeHC5w6K/nQtQJidso90mXC8=@enterprisefitness.servicebus.windows.net/activize/ConsumerGroups/$Default/Partitions/1";
-		//Endpoint=sb://enterprisefitness.servicebus.windows.net/;SharedAccessKeyName=EventHubListener;SharedAccessKey=KP24bWgswtrvbuv9TKNJeHC5w6K/nQtQJidso90mXC8=
 		synchronized(msgr) {
 		
 			try{
